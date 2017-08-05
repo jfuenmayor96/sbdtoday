@@ -33,7 +33,7 @@ app.get('/api/BTC-USD', (req, res) => {
 
 app.get('/api/USD-VEF', (req, res) => {
   axios.get('https://s3.amazonaws.com/dolartoday/data.json')
-    .then(response => console.log(response.data.USD.transferencia))
+    .then(response => res.json(response.data.USD.transferencia))
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
@@ -44,4 +44,3 @@ app.get('/api/USD-VEF', (req, res) => {
 
 const port = process.env.PORT || 5000;
 app.listen(port);
-
