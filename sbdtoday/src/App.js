@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -8,14 +9,15 @@ class App extends Component {
   }
 
   actualizarDesdeSBD (e) {
-
-    fetch("https://bittrex.com/api/v1.1/public/getticker?market=BTC-SBD", {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {console.log(response)});
+    axios.get('https://bittrex.com/api/v1.1/public/getmarkets')
+      .then(response => console.log(response))
+      .catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);}})
   }
 
 

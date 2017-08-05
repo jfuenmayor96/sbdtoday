@@ -2,7 +2,12 @@
   "name": "sbdtoday",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jfuenmayor96.github.io/sbdtoday",
   "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10"
@@ -11,6 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d /build"
+  },
+    "proxy": "http://localhost:5000"
 }
