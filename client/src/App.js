@@ -15,10 +15,10 @@ class App extends Component {
 
   componentDidMount() {
     // Obtiene el precio actual del dolar desde DolarToday
-    axios.get('http://sbdtoday.herokuapp.com/api/USD-VEF')
+    axios.get('/api/USD-VEF')
       .then(response => {
         this.USDtoVEF = response.data;
-        console.log(this.USDtoVEF)})
+      })
       .catch(function (error) {
         if (error.response) {
           // The request was made and the server responded with a status code
@@ -28,10 +28,10 @@ class App extends Component {
           console.log(error.response.headers);}})
 
     // Obtiene el precio actual Bitcoin a través de Bittrex
-    axios.get('http://sbdtoday.herokuapp.com/api/BTC-USD')
+    axios.get('/api/BTC-USD')
       .then(response => {
-        this.BTCtoUSD = response.data.result.Bid;
-        console.log(this.BTCtoUSD)})
+        this.BTCtoUSD = response.data;
+      })
       .catch(function (error) {
         if (error.response) {
           // The request was made and the server responded with a status code
@@ -41,10 +41,10 @@ class App extends Component {
           console.log(error.response.headers);}})
 
     // Obtiene el precio actual del SBD a través de Bittrex
-    axios.get('http://sbdtoday.herokuapp.com/api/SBD-BTC')
+    axios.get('/api/SBD-BTC')
       .then(response => {
-        this.SBDtoBTC = response.data.result.Bid;
-        console.log(this.SBDtoBTC)})
+        this.SBDtoBTC = response.data.result.Last;
+      })
       .catch(function (error) {
         if (error.response) {
           // The request was made and the server responded with a status code

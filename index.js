@@ -22,8 +22,9 @@ app.get('/api/SBD-BTC', (req, res) => {
 });
 
 app.get('/api/BTC-USD', (req, res) => {
-  axios.get('https://bittrex.com/api/v1.1/public/getticker?market=USDT-BTC')
-    .then(response => res.json(response.data))
+  axios.get('https://api.bitfinex.com/v2/ticker/tBTCUSD')
+    .then(response =>
+      res.json(response.data[6]))
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
