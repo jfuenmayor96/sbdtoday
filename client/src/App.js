@@ -80,6 +80,7 @@ class App extends Component {
         </Link>
         <div className="row principal">
           <div className="col-lg-4 col-md-5 col-sm-6 col-xs-10 monedas">
+            <img  src={require("./assets/logo.png")} style={{width: "100%", height: "70%", paddingBottom: "15px"}} alt="Logo de SBDToday"/>
             <label htmlFor="sbd">SBD </label><input type="text" id="sbd" onKeyUp={this.actualizarDesdeSBD}/><br/>
             <label htmlFor="bitcoin">Bitcoin </label><input type="text" id="bitcoin" onKeyUp={this.actualizarDesdeBitcoin}/><br/>
             <label htmlFor="bsf">Bolívares </label><input type="text" id="bsf" onKeyUp={this.actualizarDesdeBolivares}/>
