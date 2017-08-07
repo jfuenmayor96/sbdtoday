@@ -97,7 +97,8 @@ class App extends Component {
             <div style={{display: "flex", justifyContent: "center"}}>
               <a href="https://steemit.com/@provenezuela" alt="Perfil de steemit de provenezuela"><img className="img-responsive" src={require("./assets/provenezuela.png")} alt="Logo de provenezuela"/></a>
             </div>
-
+            <br/>
+            Si te gusta esta aplicación y quieres apoyar al talento venezolano, puedes expresar tu aprecio mediante una pequeña <a href="https://steemit.com/@jfuenmayor96/f" alt="Perfil en Steemit de Julio Fuenmayor">donación</a> en Steemit. 
             </p>
           </div>
           <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "15px"}}>
@@ -113,7 +114,7 @@ class App extends Component {
         <div className="row">
           <footer>
             <div className='col-lg-6 col-md-6 visible-lg visible-md hidden-xs hidden-sm' style={{backgroundColor: "#1A5099", height: "46px", paddingTop: "13px"}}>
-              <p>SBDToday 2017. Aplicación diseñada por Julio Fuenmayor. Todos los derechos reservados.</p>
+              <p style={{marginBottom: "0px"}}> <img src={require("./assets/calendario.png")} style={{height: "32px", width: "28px", transform: "translateY(-5px)"}} alt=""/> SBDToday 2017. Aplicación diseñada por Julio Fuenmayor. Todos los derechos reservados.</p>
             </div>
             <div className="col-lg-6 col-md-6 visible-lg visible-md hidden-xs hidden-sm" style={{backgroundColor: "#1A5099"}}>
                 <p style={{textAlign: "right"}}>
@@ -130,7 +131,7 @@ class App extends Component {
                 </p>
             </div>
             <div className='col-sm-12 col-xs-12 visible-sm visible-xs hidden-lg hidden-md' style={{textAlign: "center", backgroundColor: "#1A5099", height: "auto", paddingTop: "10px"}}>
-              <p>SBDToday 2017. Aplicación diseñada y desarrollada por Julio Fuenmayor. Todos los derechos reservados.</p>
+              <p><img src={require("./assets/calendario.png")} style={{height: "32px", width: "28px", transform: "translateY(-5px)"}} alt=""/> SBDToday 2017. Aplicación diseñada y desarrollada por Julio Fuenmayor. Todos los derechos reservados.</p>
             </div>
           </footer>
         </div>
