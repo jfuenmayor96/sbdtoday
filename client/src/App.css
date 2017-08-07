@@ -25,14 +25,17 @@ div.monedas > label {
   background-color: #4BA2F2;
   height: 100vh;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   z-index: -2;
 }
 
-footer {
+div.principal > div > p {
+  color: white;
+}
 
+footer {
   color: white;
 }
 
@@ -49,7 +52,7 @@ h1, h2 {
 
 h1 {
   font-weight: bolder;
-  font-size: 38pt;
+  font-size: 20pt;
 }
 
 h2 {
@@ -60,11 +63,21 @@ h2 {
   height: 93vh;
 }
 
-div.informacion > div >p, b {
+div.informacion > div > p{
   color: black;
   text-align: justify;
   font-size: 15pt;
 }
+
+div.informacion > div > h1 {
+  font-size: 36pt;
+}
+
+div.informacion > div > h2 {
+  font-size: 30pt;
+}
+
+
 
 .flecha {
   display: flex;
@@ -94,8 +107,9 @@ div.informacion > div >p, b {
   transition: all ease .2s;
 }
 
-a:hover {
+a, a:hover {
   text-decoration: none;
+  color: #1A5099;
 }
 
 input {
@@ -104,8 +118,12 @@ input {
 
 @media screen and (min-width: 1200px){
   img.img-responsive {
-    height: 400px !important;
-    width: 400px !important;
+    height: 100px !important;
+    width: 100px !important;
+  }
+
+  .principal {
+    height: 92vh;
   }
 }
 
@@ -113,6 +131,20 @@ input {
   img.img-responsive {
     height: 300px !important;
     width: 300px !important;
+  }
+
+  div.informacion > div > p{
+    color: black;
+    text-align: justify;
+    font-size: 12pt;
+  }
+
+  div.informacion > div > h1 {
+    font-size: 25pt;
+  }
+
+  div.informacion > div > h2 {
+    font-size: 20pt;
   }
 }
 

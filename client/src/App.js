@@ -75,7 +75,7 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Link className="flecha" to="informacion" spy={true} smooth={true} offset={0} duration={1000} delay={100}>
+        <Link className="flecha hidden-lg" to="informacion" spy={true} smooth={true} offset={0} duration={1000} delay={100}>
           <span className="glyphicon glyphicon-chevron-down"></span>
         </Link>
         <div className="row principal">
@@ -85,38 +85,51 @@ class App extends Component {
             <label htmlFor="bitcoin">Bitcoin </label><input type="text" id="bitcoin" onKeyUp={this.actualizarDesdeBitcoin}/><br/>
             <label htmlFor="bsf">Bolívares </label><input type="text" id="bsf" onKeyUp={this.actualizarDesdeBolivares}/>
           </div>
+          <div className="col-lg-7 visible-lg">
+              <h2>¿Qué es SBDToday?</h2>
+              <p>SBDToday surge como una idea pensada para los usuarios venezolanos que hacen vida en la comunidad de Steemit con el fin de que éstos puedan tener un valor de referencia sobre cuántos Bolívares y Bitcoins representan sus ganancias en SBD.<br/><br/>
+              <p>Este proyecto cuenta con el apoyo y patrocinio del grupo <a href="https://steemit.com/@provenezuela">@provenezuela</a> en Steemit.</p> <br/>
+              <div style={{display: "flex", justifyContent: "center"}}>
+                <a href="https://steemit.com/@provenezuela" alt="Perfil de steemit de provenezuela"><img className="img-responsive" src={require("./assets/logopv.png")} alt="Logo de provenezuela"/></a>
+              </div>
+              <br/>
+              Si te gusta esta aplicación y quieres apoyar al talento venezolano, puedes expresar tu aprecio mediante una pequeña <a href="https://steemit.com/@jfuenmayor96/f" alt="Perfil en Steemit de Julio Fuenmayor">donación</a> en Steemit.
+              </p>
+              <h2>¿Cómo hacen la conversión?</h2>
+              <p>Cada vez que se ingresa a SBDToday se descarga la última información disponible de las tasas de cambio proporcionadas por las APIs de <b>Bittrex</b> para convertir de <b>SBD a Bitcoin</b> y la de <b>Bitfinex</b> para convertir de <b>Bitcoin a Dólares</b>. En ningún momento SBDToday establece algún tipo de tasa de cambio. Todos los valores aquí presentes deben ser considerados como valores de referencia.</p>
+          </div>
+
         </div>
-        <div className="row informacion" id="informacion">
-          <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black"}}>
+        <div className="row informacion hidden-lg" id="informacion">
+          <div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black"}}>
             <h1>SBDToday</h1>
           </div>
-          <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black"}}>
+          <div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black"}}>
             <h2>¿Qué es SBDToday?</h2>
-            <p>SBDToday surge como una idea pensada para los usuarios venezolanos que hacen vida en la comunidad de Steemit con el fin de que éstos puedan tener un valor de referencia sobre cuántos Bolívares y Bitcoins representan sus ganancias en SBD.<br/><br/>
+            <p>SBDToday surge como una idea pensada para los usuarios venezolanos que hacen vida en la comunidad de Steemit con el fin de que éstos puedan tener un valor de referencia sobre cuántos Bolívares y Bitcoins representan sus ganancias en SBD.</p><br/><br/>
             <p>Este proyecto cuenta con el apoyo y patrocinio del grupo <a href="https://steemit.com/@provenezuela">@provenezuela</a> en Steemit.</p> <br/>
             <div style={{display: "flex", justifyContent: "center"}}>
               <a href="https://steemit.com/@provenezuela" alt="Perfil de steemit de provenezuela"><img className="img-responsive" src={require("./assets/provenezuela.png")} alt="Logo de provenezuela"/></a>
             </div>
             <br/>
-            Si te gusta esta aplicación y quieres apoyar al talento venezolano, puedes expresar tu aprecio mediante una pequeña <a href="https://steemit.com/@jfuenmayor96/f" alt="Perfil en Steemit de Julio Fuenmayor">donación</a> en Steemit. 
-            </p>
+            <p>Si te gusta esta aplicación y quieres apoyar al talento venezolano, puedes expresar tu aprecio mediante una pequeña <a href="https://steemit.com/@jfuenmayor96/f" alt="Perfil en Steemit de Julio Fuenmayor">donación</a> en Steemit.</p>
           </div>
-          <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "15px"}}>
+          <div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "15px"}}>
             <h2>¿Cómo funciona?</h2>
             <p>Es tan simple como colocar el valor que deseas convertir en el recuadro correspondiente a su moneda, y automáticamente los otros dos campos se actualizarán con su respectiva conversión.</p>
           </div>
-          <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "45px"}}>
+          <div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "45px"}}>
             <h2>¿Cómo hacen la conversión?</h2>
             <p>Cada vez que se ingresa a SBDToday se descarga la última información disponible de las tasas de cambio proporcionadas por las APIs de <b>Bittrex</b> para convertir de <b>SBD a Bitcoin</b> y la de <b>Bitfinex</b> para convertir de <b>Bitcoin a Dólares</b>. En ningún momento SBDToday establece algún tipo de tasa de cambio. Todos los valores aquí presentes deben ser considerados como valores de referencia.</p>
           </div>
         </div>
-        <br/>
+
         <div className="row">
           <footer>
-            <div className='col-lg-6 col-md-6 visible-lg visible-md hidden-xs hidden-sm' style={{backgroundColor: "#1A5099", height: "46px", paddingTop: "13px"}}>
+            <div className='col-lg-6 col-md-6 visible-lg visible-md hidden-xs hidden-sm' style={{backgroundColor: "#1A5099", height: "48px", paddingTop: "13px"}}>
               <p style={{marginBottom: "0px"}}> <img src={require("./assets/calendario.png")} style={{height: "32px", width: "28px", transform: "translateY(-5px)"}} alt=""/> SBDToday 2017. Aplicación diseñada por Julio Fuenmayor. Todos los derechos reservados.</p>
             </div>
-            <div className="col-lg-6 col-md-6 visible-lg visible-md hidden-xs hidden-sm" style={{backgroundColor: "#1A5099"}}>
+            <div className="col-lg-6 col-md-6 visible-lg visible-md hidden-xs hidden-sm" style={{backgroundColor: "#1A5099", height: "48px"}}>
                 <p style={{textAlign: "right"}}>
                     <a href="https://jfuenmayor96.github.io" alt="Portafolio de Julio Fuenmayor"><i className="fa fa-2x fa-briefcase" aria-hidden="true"></i></a>
                     <a href="https://linkedin.com/in/jefuenmayor" alt="Linkedin de Julio Fuenmayor"><i className="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></a>
