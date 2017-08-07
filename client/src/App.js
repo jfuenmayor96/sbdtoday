@@ -103,7 +103,7 @@ class App extends Component {
             <h2>¿Cómo funciona?</h2>
             <p>Es tan simple como colocar el valor que deseas convertir en el recuadro correspondiente a su moneda, y automáticamente los otros dos campos se actualizarán con su respectiva conversión.</p>
           </div>
-          <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "15px"}}>
+          <div className="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" style={{color: "black", paddingTop: "15px", paddingBottom: "45px"}}>
             <h2>¿Cómo hacen la conversión?</h2>
             <p>Cada vez que se ingresa a SBDToday se descarga la última información disponible de las tasas de cambio proporcionadas por las APIs de <b>Bittrex</b> para convertir de <b>SBD a Bitcoin</b> y la de <b>Bitfinex</b> para convertir de <b>Bitcoin a Dólares</b>. En ningún momento SBDToday establece algún tipo de tasa de cambio. Todos los valores aquí presentes deben ser considerados como valores de referencia.</p>
           </div>
@@ -129,7 +129,7 @@ class App extends Component {
                 </p>
             </div>
             <div className='col-sm-12 col-xs-12 visible-sm visible-xs hidden-lg hidden-md' style={{textAlign: "center", backgroundColor: "#1A5099", height: "auto", paddingTop: "10px"}}>
-              <p>SBDToday 2017. Aplicación diseñada por Julio Fuenmayor. Todos los derechos reservados.</p>
+              <p>SBDToday 2017. Aplicación diseñada y desarrollada por Julio Fuenmayor. Todos los derechos reservados.</p>
             </div>
           </footer>
         </div>
