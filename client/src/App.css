@@ -28,6 +28,7 @@ div.monedas > label {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  z-index: -2;
 }
 
 footer {
@@ -74,7 +75,7 @@ div.informacion > div >p, b {
 
   border-radius: 100px;
   background-color: rgba(26, 80, 153, .6);
-  z-index: 99;
+  z-index: 0;
   position: fixed;
   bottom: 47px;
   right: 20px;
@@ -119,5 +120,10 @@ input {
   img.img-responsive {
     height: 200px !important;
     width: 200px !important;
+  }
+
+  .flecha {
+    bottom: 30px;
+    right: 5px;
   }
 }
