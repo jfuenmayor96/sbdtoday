@@ -34,7 +34,7 @@ app.get('/api/BTC-USD', (req, res) => {
 
 app.get('/api/USD-VEF', (req, res) => {
   axios.get('https://s3.amazonaws.com/dolartoday/data.json')
-    .then(response => res.json(response.data.USD.transferencia))
+    .then(response => res.json(response.data.USD.bitcoin_ref))
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
@@ -42,15 +42,6 @@ app.get('/api/USD-VEF', (req, res) => {
         console.log(error.response.headers);}})
 });
 
-app.get('/api/VEF-BTC', (req, res) => {
-  axios.get("https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/")
-    .then(response => console.log(response))
-    .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);}})
-});
 
 
 app.get("*", (req, res) => {
