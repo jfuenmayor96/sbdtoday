@@ -42,6 +42,17 @@ app.get('/api/USD-VEF', (req, res) => {
         console.log(error.response.headers);}})
 });
 
+app.get('/api/VEF-BTC', (req, res) => {
+  axios.get("https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/")
+    .then(response => console.log(response))
+    .catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);}})
+});
+
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
   console.log(path.join(__dirname+'/client/build/index.html'));
