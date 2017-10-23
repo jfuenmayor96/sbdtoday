@@ -10,9 +10,11 @@ class App extends Component {
     this.actualizarDesdeSBD = this.actualizarDesdeSBD.bind(this);
     this.actualizarDesdeBitcoin = this.actualizarDesdeBitcoin.bind(this);
     this.actualizarDesdeBolivares = this.actualizarDesdeBolivares.bind(this);
+		this.actualizarDesdeSteem = this.actualizarDesdeSteem.bind(this);
     this.SBDtoBTC = 0;
     this.BTCtoUSD = 0;
     this.USDtoVEF = 0;
+		this.STEEMtoBTC = 0;
   }
 
   componentDidMount() {
@@ -48,28 +50,60 @@ class App extends Component {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);}})
-  }
+
+		// Obtiene el precio actual del SBD a través de Bittrex a través del API
+	  axios.get('http://sbdtoday.herokuapp.com/api/STEEM-BTC')
+	    .then(response => {
+	      this.STEEMtoBTC = response.data.result.Last;
+	    })
+	    .catch(function (error) {
+	      if (error.response) {
+	        console.log(error.response.data);
+	        console.log(error.response.status);
+	        console.log(error.response.headers);
+				}
+			})
+	}
+
 
   actualizarDesdeSBD (e) {
     var bitcoins = document.getElementById("bitcoin");
     var bolivares = document.getElementById("bsf");
+		var steem = document.getElementById("steem");
     bitcoins.value = e.target.value*this.SBDtoBTC;
-    bolivares.value = bitcoins.value*this.BTCtoUSD*this.USDtoVEF;
+    bolivares.value = bitcoins.value *this.BTCtoUSD * this.USDtoVEF;
+		steem.value = (e.target.value*this.SBDtoBTC)/this.STEEMtoBTC;
   }
 
   actualizarDesdeBitcoin (e) {
     var sbd = document.getElementById("sbd");
     var bolivares = document.getElementById("bsf");
+		var steem = document.getElementById("steem");
     sbd.value = e.target.value/this.SBDtoBTC;
     bolivares.value = e.target.value*this.BTCtoUSD*this.USDtoVEF;
+		steem.value = e.target.value/this.STEEMtoBTC;
+
   }
 
   actualizarDesdeBolivares (e) {
     var bitcoins = document.getElementById("bitcoin");
     var sbd = document.getElementById("sbd");
+		var steem = document.getElementById("steem");
     bitcoins.value = (e.target.value/this.USDtoVEF)/this.BTCtoUSD;
     sbd.value = ((e.target.value/this.USDtoVEF)/this.BTCtoUSD)/this.SBDtoBTC;
+		steem.value = bitcoins.value/this.STEEMtoBTC;
+
   }
+
+	actualizarDesdeSteem (e) {
+    var bitcoins = document.getElementById("bitcoin");
+    var sbd = document.getElementById("sbd");
+		var bolivares = document.getElementById("bsf");
+		bitcoins.value = (e.target.value * this.STEEMtoBTC);
+		bolivares.value = bitcoins.value * this.BTCtoUSD * this.USDtoVEF;
+    sbd.value = (e.target.value * this.STEEMtoBTC)/this.SBDtoBTC;
+  }
+
 
 
   render() {
@@ -82,6 +116,7 @@ class App extends Component {
           <div className="col-lg-4 col-md-5 col-sm-6 col-xs-10 monedas">
             <img  src={require("./assets/logo.png")} style={{width: "100%", height: "70%", paddingBottom: "15px"}} alt="Logo de SBDToday"/>
             <label htmlFor="sbd">SBD </label><input type="text" id="sbd" onKeyUp={this.actualizarDesdeSBD}/><br/>
+						<label htmlFor="steem">STEEM </label><input type="text" id="steem" onKeyUp={this.actualizarDesdeSteem}/><br/>
             <label htmlFor="bitcoin">Bitcoin </label><input type="text" id="bitcoin" onKeyUp={this.actualizarDesdeBitcoin}/><br/>
             <label htmlFor="bsf">Bolívares </label><input type="text" id="bsf" onKeyUp={this.actualizarDesdeBolivares}/>
           </div>
