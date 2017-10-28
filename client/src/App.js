@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     // Obtiene el precio actual del dolar desde DolarToday a través del API
-    axios.get('http://sbdtoday.herokuapp.com/api/USD-VEF')
+    axios.get('/api/USD-VEF')
       .then(response => {
         this.USDtoVEF = response.data;
       })
@@ -30,7 +30,7 @@ class App extends Component {
           console.log(error.response.headers);}})
 
     // Obtiene el precio actual Bitcoin a través de Bitfinex a través del API
-    axios.get('http://sbdtoday.herokuapp.com/api/BTC-USD')
+    axios.get('/api/BTC-USD')
       .then(response => {
         this.BTCtoUSD = response.data;
       })
@@ -41,7 +41,7 @@ class App extends Component {
           console.log(error.response.headers);}})
 
     // Obtiene el precio actual del SBD a través de Bittrex a través del API
-    axios.get('http://sbdtoday.herokuapp.com/api/SBD-BTC')
+    axios.get('/api/SBD-BTC')
       .then(response => {
         this.SBDtoBTC = response.data.result.Last;
       })
@@ -52,7 +52,7 @@ class App extends Component {
           console.log(error.response.headers);}})
 
 		// Obtiene el precio actual del SBD a través de Bittrex a través del API
-	  axios.get('http://sbdtoday.herokuapp.com/api/STEEM-BTC')
+	  axios.get('/api/STEEM-BTC')
 	    .then(response => {
 	      this.STEEMtoBTC = response.data.result.Last;
 	    })
