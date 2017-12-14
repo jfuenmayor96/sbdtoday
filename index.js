@@ -45,15 +45,21 @@ app.get('/api/BTC-USD', (req, res) => {
 });
 
 app.get('/api/USD-VEF', (req, res) => {
-  axios.get('https://s3.amazonaws.com/dolartoday/data.json')
-    .then(response => res.json(response.data.USD.bitcoin_ref))
+  var bsf = 0;
+  axios.get('https://localbitcoins.com/sell-bitcoins-online/VEF/transfers-with-specific-bank/.json')
+    .then(response => {
+      for (var i = 0; i < 6; i++) {
+        bsf = bsf + parseInt(response.data.data.ad_list[i].data.temp_price);
+      }
+      bsf = bsf / 6.0;
+
+      res.json(bsf)})
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
         console.log(error.response.headers);}})
 });
-
 
 
 app.get("*", (req, res) => {
