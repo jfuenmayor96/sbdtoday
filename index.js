@@ -52,8 +52,8 @@ app.get('/api/USD-VEF', (req, res) => {
         bsf = bsf + parseInt(response.data.data.ad_list[i].data.temp_price);
       }
       bsf = bsf / 6.0;
-
-      res.json(bsf)})
+      res.json(bsf)
+    })
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.data);

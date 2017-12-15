@@ -15,6 +15,7 @@ class App extends Component {
     this.BTCtoUSD = 0;
     this.USDtoVEF = 0;
 		this.STEEMtoBTC = 0;
+    this.BTCtoVEF = 0;
   }
 
   componentDidMount() {
@@ -62,7 +63,8 @@ class App extends Component {
 	        console.log(error.response.status);
 	        console.log(error.response.headers);
 				}
-			})
+			});
+
 	}
 
 
@@ -71,7 +73,7 @@ class App extends Component {
     var bolivares = document.getElementById("bsf");
 		var steem = document.getElementById("steem");
     bitcoins.value = e.target.value*this.SBDtoBTC;
-    bolivares.value = bitcoins.value *this.BTCtoUSD * this.USDtoVEF;
+    bolivares.value = e.target.value * this.SBDtoBTC * this.USDtoVEF;
 		steem.value = (e.target.value*this.SBDtoBTC)/this.STEEMtoBTC;
   }
 
@@ -80,7 +82,7 @@ class App extends Component {
     var bolivares = document.getElementById("bsf");
 		var steem = document.getElementById("steem");
     sbd.value = e.target.value/this.SBDtoBTC;
-    bolivares.value = e.target.value*this.BTCtoUSD*this.USDtoVEF;
+    bolivares.value = e.target.value*this.USDtoVEF;
 		steem.value = e.target.value/this.STEEMtoBTC;
 
   }
@@ -89,8 +91,8 @@ class App extends Component {
     var bitcoins = document.getElementById("bitcoin");
     var sbd = document.getElementById("sbd");
 		var steem = document.getElementById("steem");
-    bitcoins.value = (e.target.value/this.USDtoVEF)/this.BTCtoUSD;
-    sbd.value = ((e.target.value/this.USDtoVEF)/this.BTCtoUSD)/this.SBDtoBTC;
+    bitcoins.value = (e.target.value/this.USDtoVEF);
+    sbd.value = (e.target.value/this.USDtoVEF)/this.SBDtoBTC;
 		steem.value = bitcoins.value/this.STEEMtoBTC;
 
   }
@@ -100,7 +102,7 @@ class App extends Component {
     var sbd = document.getElementById("sbd");
 		var bolivares = document.getElementById("bsf");
 		bitcoins.value = (e.target.value * this.STEEMtoBTC);
-		bolivares.value = bitcoins.value * this.BTCtoUSD * this.USDtoVEF;
+		bolivares.value = e.target.value * this.STEEMtoBTC * this.USDtoVEF;
     sbd.value = (e.target.value * this.STEEMtoBTC)/this.SBDtoBTC;
   }
 
